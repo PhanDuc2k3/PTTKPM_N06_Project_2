@@ -111,12 +111,19 @@ main{
     margin-top: 20px;
 }
 
-.project{
+.project-space{
     display: flex;
     justify-content: center;
 }
 
+#project{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .project-content input{
+    outline: none;
     border: none;
     background-color:#FBEAC7;
     width: 50%;
@@ -126,7 +133,9 @@ main{
 .project-action{
     display: flex;
     margin-right: 10px;
+    flex-direction: row;
 }
+
 
 .project-action button{
     background-color: #FBEAC7;
