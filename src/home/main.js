@@ -65,3 +65,13 @@ window.addEventListener('load', () => {
 		});
 	});
 });
+
+function showForm(){
+	const form = document.querySelector("#new-to-do-option");
+	form.style.display = "block";
+}
+
+
+
+
+

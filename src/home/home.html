@@ -15,7 +15,7 @@
             <div class="nav-menu">
                 <span class="menu"><ion-icon class="menu-icon" name="menu"></ion-icon></span>
             </div>
-            <div class="tittle">
+            <div class="title">
                 <div class="your-to-do">
                     <svg width="50px" height="50px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"/>                
@@ -82,8 +82,30 @@
             <div class="display-day">
                 <h2>Monday</h2>
             </div>
-            <div class="new-to-do">
-                <button>New Item</button>
+            <div id="new-to-do">
+                <button id="new-to-do-submit" onclick="showForm()">New Item</button>
+            </div>
+            <div class="new-to-do-list">
+                <form action="" id="new-to-do-option" >
+                    <div class="new-to-do-option-title">
+                        <h3>New Todo</h3>
+                    </div>
+                    <div class="new-to-do-content">
+                        <div class="new-todo-input">
+                            <input type="text" placeholder="Todo Title">
+                        </div>
+                        <div class="new-todo-date">
+                            <input type="date" name="" id="" placeholder="mm/dd/yy">
+                        </div>
+                        <div class="todo-decription">
+                             <textarea name="" id="" placeholder="Todo Description" ></textarea>    
+                        </div>
+                        <div class="add-new-todo">
+                            <input type="submit" id="add-new-todo" value="Add">
+                        </div>
+                    </div>
+                </form>
+
             </div>
             <div class="to-do-space">
                 <div class="priority-item">
