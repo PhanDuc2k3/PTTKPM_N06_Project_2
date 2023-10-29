@@ -10,10 +10,10 @@
     <div class="wrapper fadeInDown">
         <div id="formContent">
           <!-- Tabs Titles -->
-          <a href="./login.html">
+          <a href="./login.php">
             <h2 class="active"> Sign In </h2>
           </a>
-          <a href="../sign_up/sign_up.html">
+          <a href="../sign_up/sign_up.php">
             <h2 class="inactive underlineHover">Sign Up </h2>
           </a>
           <!-- Icon -->
@@ -22,9 +22,12 @@
           </div>
       
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Tài khoản">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Mật khẩu">
+          <form action="user_login.php" method="post"> 
+            <?php if (isset($_GET['error'])) { ?>
+              <p class="error"><?php echo $_GET['error'];?></p>
+              <?php } ?>
+            <input type="text" id="email" class="fadeIn second" name="email" placeholder="Tài khoản">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="Mật khẩu">
             <input type="submit" class="fadeIn fourth" value="Đăng nhập">
           </form>
       
