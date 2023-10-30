@@ -21,16 +21,16 @@
           </div>
       
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Tài khoản">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Mật khẩu cũ">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Mật khẩu mới">
+          <form action="change_password_process.php" method="post">
+            <input type="text" id="login" class="fadeIn second" name="cp_email" placeholder="Tài khoản">
+            <input type="text" id="password" class="fadeIn third" name="old_password" placeholder="Mật khẩu cũ">
+            <input type="text" id="password" class="fadeIn third" name="new_password" placeholder="Mật khẩu mới">
             <input type="submit" class="fadeIn fourth" value="Thay đổi mật khẩu">
           </form>
       
           <!-- Remind Passowrd -->
           <div id="formFooter">
-            <a class="underlineHover" href="../login/login.html">Login</a>
+            <a class="underlineHover" href="../login/login.php">Login</a>
           </div>
       
         </div>

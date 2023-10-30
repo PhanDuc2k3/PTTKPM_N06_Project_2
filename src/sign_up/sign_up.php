@@ -21,12 +21,13 @@
           </div>
       
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Tài khoản">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Mật khẩu">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Xác nhận mật khẩu">
-            <input type="submit" class="fadeIn fourth" value="Sign up">
-          </form>
+          <form method="post" action="register_process.php">
+    <input type="text" id="login" class="fadeIn second" name="name" placeholder="Tên">
+    <input type="text" id="signup_email" class="fadeIn second" name="signup_email" placeholder="Tài khoản">
+    <input type="text" id="signup_password" class="fadeIn third" name="signup_password" placeholder="Mật khẩu">
+    <input type="text" id="password" class="fadeIn third" name="confirm_password" placeholder="Xác nhận mật khẩu">
+    <input type="submit" class="fadeIn fourth" value="Sign up">
+</form>
       
           <!-- Remind Passowrd -->
           <div id="formFooter">

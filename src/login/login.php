@@ -26,14 +26,14 @@
             <?php if (isset($_GET['error'])) { ?>
               <p class="error"><?php echo $_GET['error'];?></p>
               <?php } ?>
-            <input type="text" id="email" class="fadeIn second" name="email" placeholder="Tài khoản">
-            <input type="text" id="password" class="fadeIn third" name="password" placeholder="Mật khẩu">
+            <input type="text" id="email" class="fadeIn second" name="login_email" placeholder="Tài khoản">
+            <input type="text" id="password" class="fadeIn third" name="login_password" placeholder="Mật khẩu">
             <input type="submit" class="fadeIn fourth" value="Đăng nhập">
           </form>
       
           <!-- Remind Passowrd -->
           <div id="formFooter">
-            <a class="underlineHover" href="../Change_password/forgot_pass.html">Đổi mật khẩu</a>
+            <a class="underlineHover" href="../Change_password/forgot_pass.php">Đổi mật khẩu</a>
           </div>
       
         </div>
