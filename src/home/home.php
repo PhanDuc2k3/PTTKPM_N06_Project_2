@@ -1,3 +1,52 @@
+<?php
+session_start();
+
+// Kiểm tra xem người dùng đã đăng nhập hay chưa
+if (!isset($_SESSION['id'])) {
+    header("Location: ../login/login.php"); // Điều hướng người dùng đến trang đăng nhập nếu chưa đăng nhập.
+    exit();
+}
+
+// Kết nối đến cơ sở dữ liệu (sử dụng thông tin cấu hình của bạn)
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db_name = "mysql_todolist";
+
+$conn = mysqli_connect($servername, $username, $password, $db_name);
+
+// Lấy ID của người dùng từ tham số URL
+$user_id = $_GET['id'];
+
+// Truy vấn thông tin của tài khoản người dùng dựa trên ID
+$query = "SELECT * FROM tbl_user WHERE id = $user_id";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    die("Lỗi truy vấn cơ sở dữ liệu: " . mysqli_error($conn));
+}
+
+if (mysqli_num_rows($result) === 0) {
+    die("Không tìm thấy thông tin tài khoản người dùng.");
+}
+
+$row = mysqli_fetch_assoc($result);
+
+$taskQuery = "SELECT * FROM tbl_todolist WHERE id = $user_id"; // Sử dụng tên bảng `tbl_todolist`
+$taskResult = mysqli_query($conn, $taskQuery);
+
+if (!$taskResult) {
+    die("Lỗi truy vấn danh sách công việc: " . mysqli_error($conn));
+}
+
+$tasks = array(); // Tạo một mảng để lưu trữ các mục công việc
+while ($taskRow = mysqli_fetch_assoc($taskResult)) {
+    $tasks[] = $taskRow['title'];
+}
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,6 +94,7 @@
                         </g>
                     </svg>
                     <h2>Your Todo</h2>
+                    <a href="../My profile/myprofile.php">account</a>
                 </div>
             </div>
         </div>
@@ -71,24 +121,31 @@
                 <div class="project-space">
                     <div id="project">
 
-                        <!-- <div class="project-list">
-                            <div class="project-content">
-                                <input 
-                                    type="text" 
-                                    class="text" 
-                                    value="A new task"
-                                    readonly>
-                            </div>
-                            <div class="project-action">
-                                <button class="edit">Edit</button>
-                                <button class="delete">Delete</button>
-                            </div>
-                        </div> -->
+                    <ul id="task-list" style="list-style-type: none;">
+                    <!-- PHP để hiển thị dữ liệu -->
+                    <?php foreach ($tasks as $task) : ?>
+    <div class="project-list">
+        <div class="project-content">
+            <button 
+                type="button" 
+                class="text-button" 
+                onclick="handleButtonClick('<?php echo $task; ?>');" 
+            >
+                <?php echo $task; ?>
+            </button>
+        </div>
+    </div>
+<?php endforeach; ?>
+                </ul>
 
                     </div>
                 </div>
 
             </div>
+
+            <div class="edit-task-form" style="display: none;">
+    
+</div>
         </div>
 
         <div class="content">
@@ -129,7 +186,15 @@
         </div>
     </main>
 
+    
+
+
 </body>
 
 </html>
 
+
+<?php
+// Đóng kết nối cơ sở dữ liệu
+mysqli_close($conn);
+?>

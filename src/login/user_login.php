@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../../sever/config/config.php";
 
 if (isset($_POST['login_email']) && isset($_POST['login_password'])){
@@ -27,7 +28,8 @@ if (isset($_POST['login_email']) && isset($_POST['login_password'])){
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['name'] = $row['name'];
                 $_SESSION['id'] = $row['id'];
-                header("Location:../home/home.php");
+                $user_id = $row['id'];
+                header("Location:../trangchu/dist/index.php?id=$user_id");
                 echo "loggin";
             }
             else {

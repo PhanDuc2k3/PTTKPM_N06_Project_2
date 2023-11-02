@@ -1,3 +1,4 @@
+
 window.addEventListener('load', () => {
 	const form = document.querySelector("#new-project-form");
 	const input = document.querySelector("#new-project-input");

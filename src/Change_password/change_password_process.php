@@ -21,7 +21,7 @@ if (isset($_POST['cp_email']) && isset($_POST['old_password']) && isset($_POST['
             // Cập nhật mật khẩu mới
             $update_password_sql = "UPDATE tbl_user SET password='$new_password' WHERE id=$id";
             if (mysqli_query($conn, $update_password_sql)) {
-                header("Location: sign_up.php");
+                header("Location: ../login/login.php");
                 exit();
             } else {
                 echo "Lỗi: " . mysqli_error($conn);
