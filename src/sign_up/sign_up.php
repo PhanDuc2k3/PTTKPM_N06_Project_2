@@ -11,9 +11,9 @@
         <div id="formContent">
           <!-- Tabs Titles -->
           <a href="../login/login.php">
-          <h2 class="inactive underlineHover"> Sign In </h2>
+          <h2 class="inactive underlineHover"> Đăng nhập </h2>
           </a>
-          <h2 class="active">Sign Up </h2>
+          <h2 class="active">Đăng kí </h2>
       
           <!-- Icon -->
           <div class="fadeIn first">
@@ -22,6 +22,9 @@
       
           <!-- Login Form -->
           <form method="post" action="register_process.php">
+          <?php if (isset($_GET['error'])) { ?>
+              <p class="error"><?php echo $_GET['error'];?></p>
+              <?php } ?>
     <input type="text" id="login" class="fadeIn second" name="name" placeholder="Tên">
     <input type="text" id="signup_email" class="fadeIn second" name="signup_email" placeholder="Tài khoản">
     <input type="text" id="signup_password" class="fadeIn third" name="signup_password" placeholder="Mật khẩu">

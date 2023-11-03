@@ -53,7 +53,7 @@ $gender = $row['gender'];
 </head>
 <body>
     
-    <h1 class="tieude">My Profile</h1>
+    <h1 class="tieude">Trang cá nhân</h1>
     <div class="all">
         <div class="box_img">
             <img src="https://img.meta.com.vn/Data/image/2021/09/22/anh-meo-cute-de-thuong-dang-yeu-42.jpg" alt="" style="width: 300px;
@@ -62,7 +62,7 @@ $gender = $row['gender'];
         <div class="box_inf">
             <div class="box_inf_1">
                 <div class="box_inf_1_1">
-                    <p class="p_1">Name</p>
+                    <p class="p_1">Tên</p>
                     <p class="p_2"><?php echo $name; ?></p>
                 </div>
                 <div class="box_inf_1_1">
@@ -72,7 +72,7 @@ $gender = $row['gender'];
             </div>
             <div class="box_inf_1">
                 <div class="box_inf_1_1">
-                    <p class="p_1">Phone Number</p>
+                    <p class="p_1">Số điện thoại</p>
                     <p class="p_2"><?php echo $phoneNumber; ?></p>
                 </div>
                 <div class="box_inf_1_1">
@@ -82,11 +82,11 @@ $gender = $row['gender'];
             </div>
             <div class="box_inf_1">
                 <div class="box_inf_1_1">
-                    <p class="p_1">Address</p>
+                    <p class="p_1">Địa chỉ</p>
                     <p class="p_2"><?php echo $address; ?></p>
                 </div>
                 <div class="box_inf_1_1">
-                    <p class="p_1">Gender</p>
+                    <p class="p_1">Giới tính</p>
                     <p class="p_2"><?php echo $gender; ?></p>
                 </div>
             </div>

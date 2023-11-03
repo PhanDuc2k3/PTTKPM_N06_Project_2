@@ -11,10 +11,10 @@
         <div id="formContent">
           <!-- Tabs Titles -->
           <a href="./login.php">
-            <h2 class="active"> Sign In </h2>
+            <h2 class="active"> Đăng nhập </h2>
           </a>
           <a href="../sign_up/sign_up.php">
-            <h2 class="inactive underlineHover">Sign Up </h2>
+            <h2 class="inactive underlineHover">Đăng kí </h2>
           </a>
           <!-- Icon -->
           <div class="fadeIn first">

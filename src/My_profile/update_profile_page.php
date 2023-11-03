@@ -43,7 +43,7 @@ $row = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="update_profile_page.css">
 </head>
 <body>
-    <h1 class="tieude">My Profile</h1>
+    <h1 class="tieude">Trang chủ</h1>
     <div class="all">
         <div class="content_up">
             <div class="box_img">
@@ -57,7 +57,7 @@ $row = mysqli_fetch_assoc($result);
             <div class="box_inf">
                 <form id="profileForm" method="post" action="update_profile.php">
                     <div class="box_input">
-                        <p class="p_1">Name</p>
+                        <p class="p_1">Tên</p>
                         <input type="text" id="name" name="name" value="<?php echo $row['name']; ?>" required>
                     </div>
                     <div class="box_input">
@@ -65,7 +65,7 @@ $row = mysqli_fetch_assoc($result);
                         <input type="text" id="email" name="email" placeholder="Nhập email của bạn" value="<?php echo $row['email']; ?>"required>
                     </div>
                     <div class="box_input">
-                        <p class="p_1">Phone Number</p>
+                        <p class="p_1">Số điện thoại</p>
                         <input type="number" style="appearance: textfield;" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn" value="<?php echo $row['phone_number']; ?>">
                     </div>
                     <div class="box_input_2">
@@ -74,7 +74,7 @@ $row = mysqli_fetch_assoc($result);
                             <input type="date" style="font-family:Arial, Helvetica, sans-serif "id="birthdate" name="birthdate" value="<?php echo $row['dob']; ?>">
                         </div>
                         <div class="box_dob_pn">
-                            <p class="p_1">Phone Number</p>
+                            <p class="p_1">Giới tính</p>
                             <select class="gendercss" id="gender" name="gender">
                                 <option value="Nam" <?php echo ($row['gender'] === 'Nam') ? 'selected' : ''; ?>>Nam</option>
                                 <option value="Nữ" <?php echo ($row['gender'] === 'Nữ') ? 'selected' : ''; ?>>Nữ</option>
@@ -82,7 +82,7 @@ $row = mysqli_fetch_assoc($result);
                         </div>
                     </div>
                     <div class="box_input">
-                        <p class="p_1">Address</p>
+                        <p class="p_1">Địa chỉ</p>
                         <input type="text" id="address" name="address" placeholder="Nhập địa chỉ của bạn" value="<?php echo $row['address']; ?>">
                     </div>
                 </form>

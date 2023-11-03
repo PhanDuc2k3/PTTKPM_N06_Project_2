@@ -1,6 +1,19 @@
 <?php
-include "../../sever/config/config.php";
+
 // Kết nối đến cơ sở dữ liệu
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db_name = "mysql_todolist";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password,$db_name);
+
+// Check connection 
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
 
 if (isset($_POST['cp_email']) && isset($_POST['old_password']) && isset($_POST['new_password'])) {
     $cp_email = $_POST['cp_email'];
@@ -11,7 +24,11 @@ if (isset($_POST['cp_email']) && isset($_POST['old_password']) && isset($_POST['
     $check_email_sql = "SELECT id, password FROM tbl_user WHERE email='$cp_email'";
     $result = mysqli_query($conn, $check_email_sql);
 
-    if (mysqli_num_rows($result) === 1) {
+    if (empty($cp_email) || empty($old_password) || empty($new_password)) {
+        header("Location: forgot_pass.php?error=Tất cả các trường là bắt buộc");
+        exit();
+    } 
+    elseif  (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         $id = $row['id'];
         $db_password = $row['password'];
@@ -24,13 +41,16 @@ if (isset($_POST['cp_email']) && isset($_POST['old_password']) && isset($_POST['
                 header("Location: ../login/login.php");
                 exit();
             } else {
+                header("Location: forgot_pass.php?error=Mật khẩu và xác nhận mật khẩu không khớp");
                 echo "Lỗi: " . mysqli_error($conn);
             }
         } else {
-            echo "Mật khẩu hiện tại không đúng. Vui lòng kiểm tra lại.";
+            header("Location: forgot_pass.php?error=Mật khẩu hiện tại không đúng. Vui lòng kiểm tra lại");
+            // echo "Mật khẩu hiện tại không đúng. Vui lòng kiểm tra lại.";
         }
     } else {
-        echo "Email không tồn tại trong cơ sở dữ liệu.";
+        header("Location: forgot_pass.php?error=Email không tồn tại");
+        // echo "Email không tồn tại trong cơ sở dữ liệu.";
     }
 } else {
     echo "Vui lòng cung cấp đủ thông tin.";

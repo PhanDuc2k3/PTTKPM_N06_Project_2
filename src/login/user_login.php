@@ -14,10 +14,10 @@ if (isset($_POST['login_email']) && isset($_POST['login_password'])){
     $password = validate($_POST['login_password']);
 
     if (empty($email)){
-        header("Location: login.php?error=User is required");
+        header("Location: login.php?error=Chưa nhập tài khoản");
         exit();
     } else if(empty($password)){
-        header("Location: login.php?error=Password is required");
+        header("Location: login.php?error=Chưa nhập mật khẩu");
         exit();
     } else {
         $sql = "SELECT * FROM tbl_user WHERE email = '$email' AND password = '$password'";
@@ -33,12 +33,12 @@ if (isset($_POST['login_email']) && isset($_POST['login_password'])){
                 echo "loggin";
             }
             else {
-                header("Location: login.php?Incorect Email and Password");
+                header("Location: login.php?error=Tài khoản hoặc mật khẩu không đúng");
                 exit();
             }
         }
         else {
-            header("Location: login.php?Incorect Email and Password");
+            header("Location: login.php?error=Tài khoản hoặc mật khẩu không đúng");
             exit();
         }
     }

@@ -265,3 +265,8 @@ input[type=text]:placeholder {
 * {
   box-sizing: border-box;
 }
+
+
+.error{
+  color: red;
+}
